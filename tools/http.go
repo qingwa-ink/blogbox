@@ -7,22 +7,22 @@ import (
 )
 
 // HTTPGet 简单的Get网络请求
-func HTTPGet(url string) (string, error) {
+func HTTPGet(url string) ([]byte, error) {
 
 	httpClient := &http.Client{
 		Timeout: 20 * time.Second,
 	}
 	res, err := httpClient.Get(url)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	defer res.Body.Close()
 
 	body, err := ioutil.ReadAll(res.Body)
 
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	return string(body), nil
+	return body, nil
 }
