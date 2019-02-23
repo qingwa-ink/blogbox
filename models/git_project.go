@@ -13,6 +13,7 @@ type GitProject struct {
 	URL          string  `json:"url"`
 	ContentsURL  string  `json:"contents_url"`
 	DownloadsURL string  `json:"downloads_url"`
+	EventsURL    string  `json:"events_url"`
 	LanguagesURL string  `json:"languages_url"`
 	CreatedAt    string  `json:"created_at"`
 	UpdatedAt    string  `json:"updated_at"`
