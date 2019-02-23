@@ -2,11 +2,9 @@ package services
 
 import (
 	"blog/models"
+	"blog/tools"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
-	"time"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
@@ -24,18 +22,7 @@ func RefreshGitData() {
 	fmt.Println(gitName)
 
 	gitAPIURL := fmt.Sprintf("https://api.github.com/repos/%s", gitName)
-	httpClient := &http.Client{
-		Timeout: 20 * time.Second,
-	}
-	res, err := httpClient.Get(gitAPIURL)
-	if err != nil {
-		logs.Warn("something wrong here: %s", err.Error())
-		return
-	}
-	defer res.Body.Close()
-
-	body, err := ioutil.ReadAll(res.Body)
-
+	body, err := tools.HTTPGet(gitAPIURL)
 	if err != nil {
 		logs.Warn("something wrong here: %s", err.Error())
 		return
@@ -59,21 +46,11 @@ func RefreshGitData() {
 func download(gitName, filePath, savePath string) {
 
 	gitAPIURL := fmt.Sprintf("https://api.github.com/repos/%s/contents/%s", gitName, filePath)
-
-	httpClient := &http.Client{
-		Timeout: 20 * time.Second,
-	}
-	res, err := httpClient.Get(gitAPIURL)
+	body, err := tools.HTTPGet(gitAPIURL)
 	if err != nil {
 		logs.Warn("something wrong here: %s", err.Error())
 		return
 	}
-	defer res.Body.Close()
 
-	body, err := ioutil.ReadAll(res.Body)
-
-	if err != nil {
-		logs.Warn("something wrong here: %s", err.Error())
-		return
-	}
+	logs.Warn("body : %s", string(body))
 }
