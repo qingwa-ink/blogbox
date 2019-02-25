@@ -4,7 +4,7 @@ package models
 type GitFile struct {
 	Name         string `json:"name"`
 	Path         string `json:"path"`
-	Size         int    `json:"size"`
+	Size         int64  `json:"size"`
 	Sha          string `json:"sha"`
 	HTMLURL      string `json:"html_url"`
 	URL          string `json:"url"`
