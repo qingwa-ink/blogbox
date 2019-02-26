@@ -23,6 +23,16 @@ func RefreshGitData() {
 	fmt.Println(sqlitePath)
 	fmt.Println(gitName)
 
+	gitEventURL := fmt.Sprintf("https://api.github.com/repos/%s/events", gitName)
+	events, err := tools.HTTPGet(gitEventURL)
+	if err != nil {
+		logs.Error("Load Project Error : %s", err.Error())
+		return
+	}
+	var es []models.GitEvent
+	json.Unmarshal(events, &es)
+	fmt.Printf("%+v", es)
+
 	gitAPIURL := fmt.Sprintf("https://api.github.com/repos/%s", gitName)
 	body, err := tools.HTTPGet(gitAPIURL)
 	if err != nil {

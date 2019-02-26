@@ -15,4 +15,5 @@ type BlogProject struct {
 	AuthorNodeID string `json:"author_node_id"`
 	AvatarURL    string `json:"avatar_url"`
 	ReposURL     string `json:"repos_url"`
+	PushEventID  string `json:"push_event_id"`
 }
