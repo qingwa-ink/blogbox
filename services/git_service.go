@@ -23,36 +23,51 @@ func RefreshGitData() {
 	fmt.Println(sqlitePath)
 	fmt.Println(gitName)
 
-	gitEventURL := fmt.Sprintf("https://api.github.com/repos/%s/events", gitName)
-	events, err := tools.HTTPGet(gitEventURL)
+	// gitEventURL := fmt.Sprintf("https://api.github.com/repos/%s/events", gitName)
+	// events, err := tools.HTTPGet(gitEventURL)
+	// if err != nil {
+	// 	logs.Error("Load Project Error : %s", err.Error())
+	// 	return
+	// }
+	// var es []models.GitEvent
+	// json.Unmarshal(events, &es)
+	// fmt.Printf("%+v", es)
+
+	// gitAPIURL := fmt.Sprintf("https://api.github.com/repos/%s", gitName)
+	// body, err := tools.HTTPGet(gitAPIURL)
+	// if err != nil {
+	// 	logs.Error("Load Project Error : %s", err.Error())
+	// 	return
+	// }
+
+	// var project models.GitProject
+	// json.Unmarshal(body, &project)
+
+	// logs.Debug("project : %+v", project)
+	// if project.ID == 0 {
+	// 	logs.Error("Init Error : this project is not found.")
+	// 	return
+	// } else if project.Private == true {
+	// 	logs.Error("Init Error : this project is not public.")
+	// 	return
+	// }
+
+	// download(gitName, "", gitPath)
+
+	content := &models.BlogContent{
+		Name:      "Kate",
+		Path:      "good/Kate",
+		Deep:      1,
+		Size:      99,
+		ProjectID: 10086,
+	}
+	// content.Insert()
+	cs, err := content.FindAll()
 	if err != nil {
-		logs.Error("Load Project Error : %s", err.Error())
+		logs.Error("FindAll Error : %s", err.Error())
 		return
 	}
-	var es []models.GitEvent
-	json.Unmarshal(events, &es)
-	fmt.Printf("%+v", es)
-
-	gitAPIURL := fmt.Sprintf("https://api.github.com/repos/%s", gitName)
-	body, err := tools.HTTPGet(gitAPIURL)
-	if err != nil {
-		logs.Error("Load Project Error : %s", err.Error())
-		return
-	}
-
-	var project models.GitProject
-	json.Unmarshal(body, &project)
-
-	logs.Debug("project : %+v", project)
-	if project.ID == 0 {
-		logs.Error("Init Error : this project is not found.")
-		return
-	} else if project.Private == true {
-		logs.Error("Init Error : this project is not public.")
-		return
-	}
-
-	download(gitName, "", gitPath)
+	logs.Warning("%+v", cs)
 }
 
 func download(gitName, filePath, savePath string) {

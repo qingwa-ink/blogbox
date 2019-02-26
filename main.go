@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "blog/models"
 	_ "blog/routers"
 	_ "blog/services"
 
