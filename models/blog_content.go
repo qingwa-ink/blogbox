@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/astaxie/beego/orm"
-	_ "github.com/mattn/go-sqlite3"
 )
 
 // BlogContent 本地保存的博客内容
@@ -15,6 +14,8 @@ type BlogContent struct {
 	Path         string `json:"path"`
 	Deep         int    `json:"deep"`
 	Size         int64  `json:"size"`
+	Ctime        int64  `json:"ctime"`
+	Description  string `json:"description"`
 	DownloadsURL string `orm:"column(download_url)"`
 }
 

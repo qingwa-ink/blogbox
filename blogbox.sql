@@ -29,6 +29,7 @@ CREATE TABLE `blog_category`  (
   `project_id` bigint(20) NOT NULL,
   `name` varchar(1024) NOT NULL DEFAULT '',
   `path` varchar(2048) NOT NULL DEFAULT '',
+  `avatar_url` varchar(1024) NOT NULL DEFAULT '',
   `deep` int(11) NOT NULL
 );
 
@@ -43,6 +44,8 @@ CREATE TABLE `blog_content`  (
   `path` varchar(2048) NOT NULL DEFAULT '',
   `deep` int(11) NOT NULL,
   `size` bigint(20) NOT NULL,
+  `ctime` bigint(20) NOT NULL,
+  `description` varchar(2048) NOT NULL DEFAULT '',
   `download_url` varchar(2048) NOT NULL DEFAULT ''
 );
 

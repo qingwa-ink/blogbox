@@ -7,4 +7,5 @@ type BlogCategory struct {
 	Name      string `json:"name"`
 	Path      string `json:"path"`
 	Deep      int    `json:"deep"`
+	AvatarURL string `json:"avatar_url"`
 }
