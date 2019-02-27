@@ -43,6 +43,16 @@ func (content *BlogContent) FindAll() (cs []BlogContent, err error) {
 	return cs, err
 }
 
+// FindAll 查找所有数据
+func (content *BlogContent) FindContents(deep int, path string) (cs []BlogContent, err error) {
+
+	o := orm.NewOrm()
+	o.Using("default")
+	_, err = o.QueryTable(content.TableName()).Filter("deep__ge", deep).Filter("path__istartswith", path).All(&cs)
+
+	return cs, err
+}
+
 // DeleteAll 删除所有数据
 func (content *BlogContent) DeleteAll() (err error) {
 

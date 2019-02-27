@@ -20,7 +20,7 @@ func (c *MainController) Get() {
 
 	c.Data["Website"] = "beego.me"
 	c.Data["Email"] = "astaxie@gmail.com"
-	c.Data["Contents"], _ = content.FindAll()
+	c.Data["Contents"], _ = content.FindContents(1, "")
 	c.Data["Categories"], _ = category.FindAll()
 	c.Data["Project"] = bps[0]
 	c.Data["Nickname"] = beego.AppConfig.String("nickname")
