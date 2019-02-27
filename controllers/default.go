@@ -24,5 +24,6 @@ func (c *MainController) Get() {
 	c.Data["Categories"], _ = category.FindAll()
 	c.Data["Project"] = bps[0]
 	c.Data["Nickname"] = beego.AppConfig.String("nickname")
+	c.Data["Information"] = beego.AppConfig.String("information")
 	c.TplName = "index.html"
 }
