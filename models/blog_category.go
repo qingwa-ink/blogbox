@@ -40,6 +40,16 @@ func (category *BlogCategory) FindAll() (cs []BlogCategory, err error) {
 	return cs, err
 }
 
+// FindCategories 查找所有数据
+func (category *BlogCategory) FindCategories(deep int, path string) (cs []BlogCategory, err error) {
+
+	o := orm.NewOrm()
+	o.Using("default")
+	_, err = o.QueryTable(category.TableName()).Filter("deep__gte", deep).Filter("path__istartswith", path).All(&cs)
+
+	return cs, err
+}
+
 // DeleteAll 删除所有数据
 func (category *BlogCategory) DeleteAll() (err error) {
 

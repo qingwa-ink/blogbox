@@ -43,7 +43,7 @@ func (content *BlogContent) FindAll() (cs []BlogContent, err error) {
 	return cs, err
 }
 
-// FindAll 查找所有数据
+// FindContents 查找所有数据
 func (content *BlogContent) FindContents(deep int, path string) (cs []BlogContent, err error) {
 
 	o := orm.NewOrm()
