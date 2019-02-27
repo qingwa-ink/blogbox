@@ -19,10 +19,12 @@ type BlogContent struct {
 	DownloadsURL string `orm:"column(download_url)"`
 }
 
+// TableName 获取本表的表名
 func (content *BlogContent) TableName() string {
 	return "blog_content"
 }
 
+// Insert 插入数据
 func (content *BlogContent) Insert() {
 
 	o := orm.NewOrm()
@@ -31,6 +33,7 @@ func (content *BlogContent) Insert() {
 	fmt.Println(o.Insert(content))
 }
 
+// FindAll 查找所有数据
 func (content *BlogContent) FindAll() (cs []BlogContent, err error) {
 
 	o := orm.NewOrm()
@@ -38,4 +41,14 @@ func (content *BlogContent) FindAll() (cs []BlogContent, err error) {
 	_, err = o.QueryTable(content.TableName()).All(&cs)
 
 	return cs, err
+}
+
+// DeleteAll 删除所有数据
+func (content *BlogContent) DeleteAll() (err error) {
+
+	o := orm.NewOrm()
+	o.Using("default")
+	_, err = o.QueryTable(content.TableName()).Filter("id__gt", "0").Delete()
+
+	return err
 }

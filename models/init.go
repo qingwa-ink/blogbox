@@ -3,6 +3,8 @@ package models
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
+
+	// sqlite3 sqlite驱动
 	_ "github.com/mattn/go-sqlite3"
 )
 

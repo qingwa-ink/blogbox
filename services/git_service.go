@@ -62,6 +62,7 @@ func RefreshGitData() {
 		ProjectID: 10086,
 	}
 	// content.Insert()
+	content.DeleteAll()
 	cs, err := content.FindAll()
 	if err != nil {
 		logs.Error("FindAll Error : %s", err.Error())
