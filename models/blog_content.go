@@ -48,7 +48,7 @@ func (content *BlogContent) FindContents(deep int, path string) (cs []BlogConten
 
 	o := orm.NewOrm()
 	o.Using("default")
-	_, err = o.QueryTable(content.TableName()).Filter("deep__ge", deep).Filter("path__istartswith", path).All(&cs)
+	_, err = o.QueryTable(content.TableName()).Filter("deep__gte", deep).Filter("path__istartswith", path).All(&cs)
 
 	return cs, err
 }
