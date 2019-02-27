@@ -26,12 +26,12 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="width-limit">
     <!-- 左上方 Logo -->
-    <a class="logo" href="https://www.jianshu.com/"><img src="/static/img/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="Nav logo"></a>
+    <a class="logo" href="#"><img src="/static/img/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="Nav logo"></a>
 
     <!-- 右上角 -->
       <!-- 登录显示写文章 -->
-      <a class="btn write-btn" target="_blank" href="https://www.jianshu.com/writer#/">
-        <i class="iconfont ic-write"></i>写文章
+      <a class="btn write-btn" target="_blank" href="https://github.com/qingwa-ink/blogbox">
+        <i class="iconfont ic-write"></i>看源码
       </a>
     <div class="container">
       <div class="navbar-header">
@@ -74,11 +74,11 @@
       <div class="main-top">
 
   <a class="avatar" href="https://www.jianshu.com/u/8a260f355e8a">
-    <img src="/static/img/87bc8c4bac72(1).jpg" alt="240">
+    <img src="{{.Project.AvatarURL}}" alt="240">
 </a>
 
   <div class="title">
-    <a class="name" href="https://www.jianshu.com/u/8a260f355e8a">万年小学生</a>
+    <a class="name" href="https://www.jianshu.com/u/8a260f355e8a">{{.Nickname}}</a>
   </div>
   <div class="info">
     <ul>
@@ -131,12 +131,12 @@
         <!-- 文章列表模块 -->
 <ul class="note-list" infinite-scroll-url="/u/8a260f355e8a?order_by=shared_at">
     
-
+{{range .Contents}}
 <li id="note-33306471" data-note-id="33306471" class="">
   <div class="content">
-    <a class="title" target="_blank" href="https://www.jianshu.com/p/db8e7d3b6de6">sort排序</a>
+    <a class="title" target="_blank" href="https://www.jianshu.com/p/db8e7d3b6de6">{{.Name}}</a>
     <p class="abstract">
-      简介 如果你的程序中有需要排序的逻辑，强烈建议使用系统自带的sort。因为系统自带的sort中实现了3种基本的排序算法：插入排序、快排和堆排序。...
+      简介 {{.Path}}
     </p>
     <div class="meta">
       <a target="_blank" href="https://www.jianshu.com/p/db8e7d3b6de6">
@@ -148,6 +148,7 @@
     </div>
   </div>
 </li>
+{{end}}
 
     
 
@@ -508,13 +509,12 @@
   <!-- 专题和文集 -->
   <div><div><div class="title">
       专题
-    </div> <ul class="list"><li><a href="https://www.jianshu.com/c/c6e23ecfeca4" target="_blank" class="avatar-collection"><img src="/static/img/u_2114824777_2565678044_fm_26_gp_0.jpg"></a> <a href="https://www.jianshu.com/c/c6e23ecfeca4" target="_blank" class="name">golang小知识点</a></li>
-      <li><a href="https://www.jianshu.com/c/4b9f40d286a5" target="_blank" class="avatar-collection"><img src="/static/img/timg.jpg"></a> <a href="https://www.jianshu.com/c/4b9f40d286a5" target="_blank" class="name">golang算法学习</a></li>
-      <li><a href="https://www.jianshu.com/c/4a3eeea358e3" target="_blank" class="avatar-collection"><img src="/static/img/189711432.jpg"></a> <a href="https://www.jianshu.com/c/4a3eeea358e3" target="_blank" class="name">智能合约</a></li>
-      <li><a href="https://www.jianshu.com/c/bb3550700b1c" target="_blank" class="avatar-collection"><img src="/static/img/u_3389398395_2538472869_fm_27_gp_0.jpg"></a> <a href="https://www.jianshu.com/c/bb3550700b1c" target="_blank" class="name">以太坊联盟链Quorum</a></li>
-      <li><a href="https://www.jianshu.com/c/7b16eeb7aeb6" target="_blank" class="avatar-collection"><img src="/static/img/gh_8959353f544d_344.jpg"></a> <a href="https://www.jianshu.com/c/7b16eeb7aeb6" target="_blank" class="name">学习</a></li>
-      <li><a href="https://www.jianshu.com/c/1319a8c44778" target="_blank" class="avatar-collection"><img src="/static/img/30556_5.jpg"></a> <a href="https://www.jianshu.com/c/1319a8c44778" target="_blank" class="name">吸引力法则</a></li> <li><!----> <!----></li></ul> <!----></div> <!----> 
-       </div>
+    </div> <ul class="list">
+      {{range .Categories}}
+      <li><a href="https://www.jianshu.com/c/4b9f40d286a5" target="_blank" class="avatar-collection"><img src="/static/img/timg.jpg"></a> <a href="https://www.jianshu.com/c/4b9f40d286a5" target="_blank" class="name">{{.Name}}</a></li>
+      {{end}}
+      <li><!----> <!----></li></ul> <!----></div> <!----> 
+    </div>
 </div>
 
   </div>
