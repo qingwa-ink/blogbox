@@ -38,6 +38,15 @@ func (project *BlogProject) Insert() {
 	fmt.Println(o.Insert(project))
 }
 
+// Update 修改数据
+func (project *BlogProject) Update() {
+
+	o := orm.NewOrm()
+	o.Using("default")
+
+	fmt.Println(o.Update(project, "description", "updated_at", "pushed_at", "avatar_url", "push_event_id"))
+}
+
 // FindAll 查找所有数据
 func (project *BlogProject) FindAll() (cs []BlogProject, err error) {
 
