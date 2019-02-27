@@ -45,7 +45,7 @@ func (category *BlogCategory) FindCategories(deep int, path string) (cs []BlogCa
 
 	o := orm.NewOrm()
 	o.Using("default")
-	_, err = o.QueryTable(category.TableName()).Filter("deep__gte", deep).Filter("path__istartswith", path).All(&cs)
+	_, err = o.QueryTable(category.TableName()).Filter("deep", deep).Filter("path__istartswith", path).All(&cs)
 
 	return cs, err
 }
