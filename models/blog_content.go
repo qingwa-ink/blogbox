@@ -38,7 +38,7 @@ func (content *BlogContent) FindContentByPath(path string) (err error) {
 
 	o := orm.NewOrm()
 	o.Using("default")
-	err = o.QueryTable(content.TableName()).Filter("path", path).One(&content)
+	err = o.QueryTable(content.TableName()).Filter("path", path).One(content)
 
 	return err
 }
