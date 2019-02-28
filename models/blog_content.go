@@ -33,6 +33,16 @@ func (content *BlogContent) Insert() {
 	fmt.Println(o.Insert(content))
 }
 
+// FindContentByPath 根据路径查找数据
+func (content *BlogContent) FindContentByPath(path string) (err error) {
+
+	o := orm.NewOrm()
+	o.Using("default")
+	err = o.QueryTable(content.TableName()).Filter("path", path).One(&content)
+
+	return err
+}
+
 // FindAll 查找所有数据
 func (content *BlogContent) FindAll() (cs []BlogContent, err error) {
 
