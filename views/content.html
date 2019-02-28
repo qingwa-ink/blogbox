@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <meta name="description" content="世间之不可辜负者，唯有梦想与心爱之人">
+  
+
+  <title>首页</title>
+
+  <link rel="stylesheet" media="all" href="/static/css/web-274d6a76417c1f7a7da5.css">
+  
+  <link rel="stylesheet" media="all" href="/static/css/entry-71aa880fd9d7cbb38465.css">
+
+</head>
+  <body lang="zh-CN" class="reader-black-font" style="overflow-y: scroll;">
+    <!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="width-limit">
+    <!-- 左上方 Logo -->
+    <a class="logo" href="#"><img src="/static/img/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="Nav logo"></a>
+    <!-- 右上角 -->
+      <a class="btn write-btn" target="_blank" href="https://github.com/qingwa-ink/blogbox">
+        本站源码
+      </a>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li class="tab ">
+              <a href="https://www.jianshu.com/">
+                <span class="menu-text">首页</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+</a>            </li>
+            <li class="tab ">
+              <a href="https://www.jianshu.com/subscriptions">
+                <span class="menu-text">关于</span><i class="iconfont ic-navigation-follow menu-icon"></i>
+</a>            </li>
+            <li class="tab ">
+              <a href="https://www.jianshu.com/subscriptions">
+                <span class="menu-text">专题</span><i class="iconfont ic-navigation-notification menu-icon"></i>
+</a>            </li>
+          <li class="search">
+            <form target="_blank" action="https://www.jianshu.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+              <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
+              <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+</form>          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+
+<div class="container person">
+  <div class="row">
+    <div class="col-xs-16 main">
+      <div class="main-top">
+
+  <a class="avatar" href="https://www.jianshu.com/u/8a260f355e8a">
+    <img src="{{.Project.AvatarURL}}" alt="240">
+</a>
+
+  <div class="title">
+    <a class="name" href="https://www.jianshu.com/u/8a260f355e8a">{{.Nickname}}</a>
+  </div>
+  <div class="info">
+    <ul>
+      <li>
+        <div class="meta-block">
+          <a href="https://www.jianshu.com/users/8a260f355e8a/following">
+            <p>1</p>
+            关注 <i class="iconfont ic-arrow"></i>
+</a>        </div>
+      </li>
+      <li>
+        <div class="meta-block">
+          <a href="https://www.jianshu.com/users/8a260f355e8a/followers">
+            <p>10</p>
+            粉丝 <i class="iconfont ic-arrow"></i>
+</a>        </div>
+      </li>
+      <li>
+        <div class="meta-block">
+          <a href="https://www.jianshu.com/u/8a260f355e8a">
+            <p>19</p>
+            文章 <i class="iconfont ic-arrow"></i>
+</a>        </div>
+      </li>
+      <li>
+        <div class="meta-block">
+          <p>10782</p>
+          <div>字数</div>
+        </div>
+      </li>
+      <li>
+        <div class="meta-block">
+          <p>6</p>
+          <div>收获喜欢</div>
+        </div>
+      </li>
+      <li>
+        <div class="meta-block">
+          <p>1</p>
+          <div>简书钻</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+      <ul class="trigger-menu" data-pjax-container="#list-container"></ul>
+
+      <div id="list-container">
+        <!-- 文章列表模块 -->
+<ul class="note-list" infinite-scroll-url="/u/8a260f355e8a?order_by=shared_at">
+    
+<li id="note-33306471" data-note-id="33306471" class="">
+  <div class="content">
+    {{.Content}}
+  </div>
+</li>
+
+</ul>
+
+      </div>
+    </div>
+    
+<div class="col-xs-7 col-xs-offset-1 aside">
+    <div class="title">个人介绍</div>
+    <div class="description">
+    <div class="js-intro">{{.Information}}</div>
+    
+  </div>
+  <div id="user-publications"><!----></div>
+  <div id="user-courses"><!----></div>
+  <!-- 专题和文集 -->
+  <div><div><div class="title">
+      专题
+    </div> <ul class="list">
+      {{range .Categories}}
+      <li><a href="https://www.jianshu.com/c/4b9f40d286a5" target="_blank" class="avatar-collection"><img src="/static/img/timg.jpg"></a> <a href="https://www.jianshu.com/c/4b9f40d286a5" target="_blank" class="name">{{.Name}}</a></li>
+      {{end}}
+      <li><!----> <!----></li></ul> <!----></div> <!----> 
+    </div>
+</div>
+
+  </div>
+</div>
+    <script type="application/json" data-name="page-data">{"user_signed_in":true,"locale":"zh-CN","os":"linux","read_mode":"day","read_font":"font2","current_user":{"id":4273870,"nickname":"万年小学生","slug":"8a260f355e8a","avatar":"http://upload.jianshu.io/users/upload_avatars/4273870/87bc8c4bac72.jpg","unread_counts":{"chats":0,"requests":0,"total":0}},"user":{"slug":"8a260f355e8a","gender":0},"has_collections":true}</script>
+    
+    <script src="/static/js/babel-polyfill-6cd2d6b53fe3184b71cc.js" crossorigin="anonymous"></script>
+    <script src="/static/js/web-base-72aa415e06e09f4d4612.js" crossorigin="anonymous"></script>
+<script src="/static/js/web-2b6aba2473e2c3e3d306.js" crossorigin="anonymous"></script>
+    
+    <script src="/static/js/entry-669c2cc742dd86cb4db6.js" crossorigin="anonymous"></script>
+    <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+<!----><!----><!----></body></html>
