@@ -160,7 +160,7 @@
       专题
     </div> <ul class="list">
       {{range .Categories}}
-      <li><a href="https://www.jianshu.com/c/4b9f40d286a5" target="_blank" class="avatar-collection"><img src="/static/img/timg.jpg"></a> <a href="https://www.jianshu.com/c/4b9f40d286a5" target="_blank" class="name">{{.Name}}</a></li>
+      <li><a href="/?cat={{.Path}}" class="avatar-collection"><img src="/static/img/timg.jpg"></a> <a href="/?cat={{.Path}}" class="name">{{.Name}}</a></li>
       {{end}}
       <li><!----> <!----></li></ul> <!----></div> <!----> 
     </div>
