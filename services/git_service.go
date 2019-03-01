@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	fp "path"
 	"strings"
 
 	"github.com/astaxie/beego"
@@ -153,6 +154,10 @@ func download(bp models.BlogProject, gitName, filePath, savePath string) {
 	for _, gitFile := range files {
 
 		if gitFile.Type == "file" {
+			if !fileTypes[strings.ToLower(fp.Ext(gitFile.Name))] {
+				continue
+			}
+
 			httpBody, err := tools.HTTPGet(gitFile.DownloadsURL)
 			if err != nil {
 				logs.Error("Download File Error: %s", err.Error())
@@ -188,4 +193,10 @@ func download(bp models.BlogProject, gitName, filePath, savePath string) {
 			download(bp, gitName, gitFile.Path, savePath)
 		}
 	}
+}
+
+var fileTypes = map[string]bool{
+	".md":  true,
+	".png": true,
+	".jpg": true,
 }
