@@ -3,8 +3,11 @@ package controllers
 import (
 	"blog/models"
 	"fmt"
+	"html/template"
 	"io/ioutil"
 	"os"
+
+	"github.com/InkProject/blackfriday"
 
 	"github.com/astaxie/beego"
 )
@@ -32,7 +35,8 @@ func (c *ContentController) Get() {
 	}
 	datas, _ := ioutil.ReadAll(f)
 
-	c.Data["Content"] = string(datas)
+	// c.Data["Content"] = string(datas)
+	c.Data["Content"] = template.HTML(blackfriday.MarkdownCommon(datas))
 	c.Data["Categories"], _ = category.FindCategories(0, "")
 	c.Data["Project"] = bps[0]
 	c.Data["Nickname"] = beego.AppConfig.String("nickname")
