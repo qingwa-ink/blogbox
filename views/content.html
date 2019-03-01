@@ -14,6 +14,8 @@
   
   <link rel="stylesheet" media="all" href="/static/css/entry-71aa880fd9d7cbb38465.css">
 
+  <script src="/static/js/markdown.min.js" crossorigin="anonymous"></script>
+
 </head>
   <body lang="zh-CN" class="reader-black-font" style="overflow-y: scroll;">
     <!-- 全局顶部导航栏 -->
@@ -124,9 +126,9 @@
 <ul class="note-list" infinite-scroll-url="/u/8a260f355e8a?order_by=shared_at">
     
 <li id="note-33306471" data-note-id="33306471" class="">
-  <div class="content">
-    {{.Content}}
+  <div class="content" id="content">
   </div>
+  <script>document.getElementById("content").innerHTML = markdown.toHTML({{.Content}});</script>
 </li>
 
 </ul>
